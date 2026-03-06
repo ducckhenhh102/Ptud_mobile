@@ -49,13 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FB),
       appBar: AppBar(
+        // ĐỊNH DANH THEO CÚ PHÁP ĐỀ BÀI
         title: Text(
-          'THỰC ĐƠN HÔM NAY',
+          'TH3 - Nguyễn Quang Đức - 2351160512',
           style: GoogleFonts.plusJakartaSans(
-            fontWeight: FontWeight.w900,
-            fontSize: 22,
+            fontWeight: FontWeight.w800,
+            fontSize: 16, // Giảm size một chút để hiện đủ tên và mã SV
             color: const Color(0xFF1A1C1E),
-            letterSpacing: -0.5,
           ),
         ),
         backgroundColor: Colors.transparent,
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator(color: Colors.orange));
                 }
-
+                
                 if (snapshot.hasError) return _buildErrorUI();
 
                 List<Food> foods = snapshot.data ?? [];
@@ -164,7 +164,6 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // ẢNH MÓN ĂN
           Expanded(
             child: Container(
               width: double.infinity,
@@ -190,7 +189,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          // THÔNG TIN MÓN ĂN
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 20),
             child: Column(
@@ -238,6 +236,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Icon(Icons.wifi_off_rounded, size: 80, color: Colors.red.shade200),
           const SizedBox(height: 24),
           const Text('Ối! Mất kết nối rồi', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          const Text('Vui lòng kiểm tra lại mạng của bạn'),
           const SizedBox(height: 32),
           ElevatedButton(
             onPressed: _handleRetry,
